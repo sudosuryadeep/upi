@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #0b1512;
+  --bg-soft: #101d19;
+  --card: #14231e;
+  --line: #24382f;
+  --text: #eef4f0;
+  --text-dim: #9db3a8;
+  --accent: #35d0a3;
+  --accent-dim: #1f7a5f;
+  --danger: #ef7e6b;
+  --radius: 18px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(53, 208, 163, 0.08), transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(53, 208, 163, 0.05), transparent 40%),
+    var(--bg);
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  padding: 24px;
+}
+
+.wrap { width: 100%; max-width: 420px; position: relative; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 36px 32px;
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,0.5);
+  animation: rise 0.5s ease;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hidden { display: none; }
+
+.mark {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.mark-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(53, 208, 163, 0.15);
+}
+
+.mark-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  margin: 20px 0 8px;
+  text-align: center;
+}
+
+.sub {
+  color: var(--text-dim);
+  font-size: 14.5px;
+  line-height: 1.55;
+  margin: 0 0 28px;
+}
+
+#statusCard .sub { margin-bottom: 4px; text-align: center; }
+
+.field { margin-bottom: 18px; }
+
+label {
+  display: block;
+  font-size: 12.5px;
+  color: var(--text-dim);
+  margin-bottom: 7px;
+  font-weight: 500;
+}
+
+input {
+  width: 100%;
+  padding: 13px 14px;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 14.5px;
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.15s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+input::placeholder { color: #5c7268; }
+
+button[type="submit"] {
+  width: 100%;
+  padding: 15px;
+  margin-top: 6px;
+  background: var(--accent);
+  color: #062017;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'Space Grotesk', sans-serif;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.15s ease;
+}
+
+button[type="submit"]:hover { background: #4de3b7; }
+button[type="submit"]:active { transform: scale(0.98); }
+button[type="submit"]:disabled {
+  background: var(--accent-dim);
+  color: #a9c9bd;
+  cursor: not-allowed;
+}
+
+.hint {
+  font-size: 12px;
+  color: var(--text-dim);
+  text-align: center;
+  margin: 16px 0 0;
+  line-height: 1.5;
+}
+
+.status-icon { display: flex; justify-content: center; margin-bottom: 4px; }
+
+#loaderIcon path {
+  transform-origin: 28px 28px;
+  animation: spin 0.9s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.ghost-btn {
+  width: 100%;
+  padding: 13px;
+  margin-top: 22px;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+.ghost-btn:hover { border-color: var(--accent); }
+
+.success-check, .fail-mark {
+  width: 56px; height: 56px; margin: 0 auto;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.success-check { background: rgba(53, 208, 163, 0.12); }
+.fail-mark { background: rgba(239, 126, 107, 0.12); }

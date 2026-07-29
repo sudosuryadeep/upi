@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autopay Setup</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="wrap">
+    <div class="card" id="formCard">
+      <div class="mark">
+        <span class="mark-dot"></span>
+        <span class="mark-text">AUTOPAY</span>
+      </div>
+
+      <h1>Set up autopay</h1>
+      <p class="sub">Authorize once, we'll collect <strong>&#8377;1</strong> automatically each cycle. Cancel anytime.</p>
+
+      <form id="autopayForm">
+        <div class="field">
+          <label for="name">Full name</label>
+          <input type="text" id="name" placeholder="Suryadeep Singh" required />
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="you@example.com" required />
+        </div>
+
+        <div class="field">
+          <label for="contact">Mobile number</label>
+          <input type="tel" id="contact" placeholder="9876543210" pattern="[0-9]{10}" maxlength="10" required />
+        </div>
+
+        <button type="submit" id="submitBtn">
+          <span class="btn-label">Authorize &#8377;1 autopay</span>
+        </button>
+
+        <p class="hint">You'll enter your UPI PIN on the next screen to confirm — we never see or store it.</p>
+      </form>
+    </div>
+
+    <div class="card hidden" id="statusCard">
+      <div class="status-icon" id="statusIcon">
+        <svg id="loaderIcon" width="56" height="56" viewBox="0 0 56 56" fill="none">
+          <circle cx="28" cy="28" r="24" stroke="var(--line)" stroke-width="4"/>
+          <path d="M28 4a24 24 0 0 1 24 24" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h2 id="statusTitle">Waiting for authorization&hellip;</h2>
+      <p class="sub" id="statusSub">Complete the steps in the Razorpay window that just opened.</p>
+      <button class="ghost-btn hidden" id="resetBtn">Set up another</button>
+    </div>
+  </div>
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
